@@ -51,6 +51,9 @@ public class Solution {
                     // 무게 때문에 트럭을 다리에 올리지 못했으므로 1초 밀자.
                     bridge.offer(0);
                 }
+            } else {
+                // 트럭은 비어있으니 그냥 넣어야 함...
+                bridge.offer(0);
             }
 
             answer += 1;    // 여기까지 1초당 진행 된 일들.
