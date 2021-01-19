@@ -21,4 +21,18 @@ public class Solution {
 
         return answer;
     }
+
+    // 다른 풀이
+    // 원소의 값은 점점 감소하고, 원소의 값 이상인 것의 갯수 또한 감소하므로, 이 두 값의 최소값의 변화가 증가 하다가 감소하는 지점이 답이다.
+    public int anotherSolution(int[] citations) {
+        int answer = 0;
+
+        Arrays.sort(citations);
+        for(int i = citations.length - 1; i >= 0; i--) {
+            int min = Math.min(citations[i], citations.length - i);
+            answer = Math.max(answer, min);
+        }
+
+        return answer;
+    }
 }
