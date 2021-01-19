@@ -3,7 +3,7 @@ package stackqueue.solution03;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class TestSolution {
+public class SolutionTest {
     private Solution solution = new Solution();
 
     @Test
