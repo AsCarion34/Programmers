@@ -1,8 +1,6 @@
 package exhaustive_search.solution02;
 
 import java.util.LinkedHashSet;
-import java.util.Set;
-import java.util.stream.IntStream;
 
 public class Solution {
     /***
@@ -26,7 +24,7 @@ public class Solution {
         }
 
         // 숫자들로 만들수 있는 모든 경우의 수를 구한다.
-        Set<Integer> numList = new LinkedHashSet<>();
+        LinkedHashSet<Integer> numList = new LinkedHashSet<>();
         for(int i = 1; i <= nums.length; i++) {
             perm(nums, 0, i, numList);
         }
@@ -34,10 +32,10 @@ public class Solution {
         // 소수인지 판별하여 갯수를 센다.
         for(int num : numList) {
             if(num > 1 && isPrime(num)) {   // 1은 소수에서 제외하여야 한다.
-                System.out.println(String.format("numList number : %d is prime number", num));
+                System.out.printf("numList number : %d is prime number%n", num);
                 answer += 1;
             } else {
-                System.out.println(String.format("numList number : %d", num));
+                System.out.printf("numList number : %d%n", num);
             }
         }
 
@@ -45,7 +43,7 @@ public class Solution {
     }
 
     // 재귀 순열로 처리.
-    private void perm(int[] arr, int depth, int n, Set numList) {
+    private void perm(int[] arr, int depth, int n, LinkedHashSet<Integer> numList) {
         if(depth == n) {
             // 최종 깊이에 도달하였으므로 numList 에 변환하여 넣고 탈출한다.
             numList.add(convertArrayToInt(arr, n));
@@ -76,8 +74,6 @@ public class Solution {
     }
 
     private boolean isPrime(int num) {
-//        return IntStream.iterate(2, i -> i++).limit((int)Math.sqrt(num))    // 에라토스테네스의 체 이용.
-//                .noneMatch(i -> num % i == 0);
         boolean bPrime = true;
         for(int i = 2; i <= Math.sqrt(num); i++) {
             if(num % i == 0) {
