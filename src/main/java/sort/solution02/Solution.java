@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class Solution {
     public String solution(int[] numbers) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
 
         // 분석.. 이랄것 까지 없는 문제인데.. 효율적인 방안을 고민해보자.
         // 모든 경우의 수를 따질 필요가 없을거 같다.
@@ -18,12 +18,7 @@ public class Solution {
         }
 
         // 문자열 기준 정렬을 수행한다.
-        Collections.sort(stringNums, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return (o2+o1).compareTo(o1+o2);
-            }
-        });
+        Collections.sort(stringNums, (o1, o2) -> (o2+o1).compareTo(o1+o2));
 
         // 0 처리
         if(stringNums.get(0).startsWith("0")) {
@@ -31,9 +26,9 @@ public class Solution {
         }
 
         for(String stringNum : stringNums) {
-            answer += stringNum;
+            answer.append(stringNum);
         }
 
-        return answer;
+        return answer.toString();
     }
 }
