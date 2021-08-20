@@ -1,7 +1,5 @@
 package level_2.next_bigger_number;
 
-import java.util.Arrays;
-
 public class Solution {
     public int solution(int n) {
         int answer = 0;
